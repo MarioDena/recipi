@@ -6,21 +6,26 @@ import PropTypes from 'prop-types';
 const Mealpreview = (props) => {
   const { meal, selectMeal } = props;
   const handleSelectMeal = () => {
-    selectMeal(meal);
+    selectMeal(meal.idMeal);
   };
 
   return (
     <div key={meal.idMeal} className="meal">
       <div className="card">
-        <img src={meal.strMealThumb} className="card-img-top" alt="..." />
+        <img
+          src={meal.strMealThumb}
+          onClick={handleSelectMeal}
+          className="card-img-top"
+          alt="..."
+        />
         <div className="card-body">
           <h5 className="card-title font-weight-bold mb-2">{meal.strMeal}</h5>
           <button
             type="button"
             onClick={handleSelectMeal}
-            className="btn btn-danger"
+            className="btn btn-danger cook-btn"
           >
-            View Recipe
+            View
           </button>
         </div>
       </div>
@@ -29,7 +34,7 @@ const Mealpreview = (props) => {
 };
 
 Mealpreview.propTypes = {
-  idMeal: PropTypes.string.isRequired,
+  meal: PropTypes.object.isRequired,
   selectMeal: PropTypes.func.isRequired,
 };
 

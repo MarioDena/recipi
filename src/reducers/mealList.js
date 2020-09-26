@@ -12,6 +12,20 @@ const mealListReducer = (state = initialState, action) => {
     };
     return newState;
   }
+  if (action.type === 'RELOAD_MEALS') {
+    newState = {
+      loading: true,
+      meals: newState.meals,
+    };
+    return newState;
+  }
+  if (action.type === 'RELOAD_PAGE') {
+    newState = {
+      loading: true,
+      meals: newState.meals,
+    };
+    return newState;
+  }
   return newState;
 };
 
