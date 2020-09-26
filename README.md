@@ -1,7 +1,7 @@
 ![img](https://img.shields.io/github/issues/MarioDena/Responsive-Design)
 ![img2](https://img.shields.io/github/license/MarioDena/Responsive-Design)
 
-# Bookstore CMS
+# Recipi
 
 <p align="center">
   <a href="https://github.com/MarioDena">
