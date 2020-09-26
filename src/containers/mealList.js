@@ -56,6 +56,7 @@ const MealList = (props) => {
     axios
       .get(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${meal}`)
       .then((res) => {
+        window.scrollTo(0, 0);
         updateMeal(res.data.meals[0]);
       });
   };
