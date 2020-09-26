@@ -140,7 +140,7 @@ const Meal = (props) => {
           <h4 className="instruction2">Preparation</h4>{' '}
           <p className="instructions3">
             {meal.strInstructions
-              .replaceAll('.', '.\n')
+              .replaceAll('.  ', '.\n')
               .split('\n')
               .map((i) => {
                 return <div key={i}>{i}</div>;
