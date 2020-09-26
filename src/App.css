@@ -1,7 +1,7 @@
 body {
   background-color: white;
   background-image:
-   linear-gradient(
+    linear-gradient(
       90deg,
       rgba(200, 0, 0, 0.3) 50%,
       transparent 20%
@@ -34,6 +34,7 @@ body {
   margin-top: 20px;
   padding-top: 20px;
 }
+
 .instructions {
   margin-left: 10px;
   margin-right: 10px;
@@ -65,7 +66,7 @@ body {
 }
 
 .my-3 {
-  margin-top: 0px !important;
+  margin-top: 0 !important;
 }
 
 .catContent {
@@ -142,7 +143,6 @@ body {
 }
 
 @media only screen and (max-width: 1199px) {
-
   .card-group {
     width: 650px;
   }
@@ -160,7 +160,6 @@ body {
 }
 
 @media only screen and (max-width: 768px) {
-
   .card-group {
     max-width: 620px;
   }
@@ -188,7 +187,6 @@ body {
 }
 
 @media only screen and (max-width: 400px) {
-
   .card-title {
     max-width: 150px;
     margin-top: -10px;
@@ -202,7 +200,6 @@ body {
 }
 
 @media only screen and (max-width: 350px) {
-
   .Coco {
     font-size: 22px;
   }
@@ -219,7 +216,6 @@ body {
 }
 
 @media only screen and (max-width: 240px) {
-  
   .card-title {
     font-size: 12px;
     max-width: 60px;
