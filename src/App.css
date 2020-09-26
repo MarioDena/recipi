@@ -9,8 +9,8 @@ body {
   background-size: 50px 50px;
 }
 
-.loaderContainer{
-  height: calc(100vh - 220px );
+.loaderContainer {
+  height: calc(100vh - 220px);
 }
 
 .card {
