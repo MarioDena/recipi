@@ -49,6 +49,7 @@ const MealList = (props) => {
     axios
       .get(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${cat}`)
       .then((res) => {
+        window.scrollTo(0, 0);
         getMeals(res.data);
       });
   };
