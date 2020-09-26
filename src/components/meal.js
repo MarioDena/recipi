@@ -138,7 +138,14 @@ const Meal = (props) => {
       <div className="row">
         <div className="col-md-12 instructions">
           <h4 className="instruction2">Preparation</h4>{' '}
-          <p className="instructions3">{meal.strInstructions}</p>
+          <p className="instructions3">
+            {meal.strInstructions
+              .replaceAll('.', '.\n')
+              .split('\n')
+              .map((i) => {
+                return <div key={i}>{i}</div>;
+              })}
+          </p>
           <button
             type="button"
             className="btn btn-danger float-right goback"
