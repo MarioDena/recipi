@@ -9,7 +9,7 @@
   </a>
 
   <h3 align="center">
-	 Recipi
+	 Recipi the 3.1416 of food!
   </h3>
 
   <p align="center">
