@@ -15,10 +15,9 @@ const CategoryFilter = (props) => {
     'Vegetarian',
   ];
   const { changeFilter } = props;
-  
+
   const handleFilterChange = (ev) => {
     changeFilter(ev.target.title);
-    
   };
   return (
     <div className="navbar-fixed">

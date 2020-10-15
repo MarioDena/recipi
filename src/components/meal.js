@@ -1,9 +1,7 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { useParams } from 'react-router-dom';
 import { selectMeal } from '../actions/index';
 
 const mapDispatchToProps = (dispatch) => {
@@ -318,7 +316,9 @@ const Meal = (props) => {
                     );
                   })}
               </p>
-              <Link to="/" className="waves-effect waves-light btn findbtn">Back to the Menu</Link>
+              <Link to="/" className="waves-effect waves-light btn findbtn">
+                Back to the Menu
+              </Link>
             </div>
           </div>
         </div>
@@ -327,10 +327,6 @@ const Meal = (props) => {
       )}
     </div>
   );
-};
-
-Meal.defaultProps = {
-  selectedMeal: null,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Meal);
