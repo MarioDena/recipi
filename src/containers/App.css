@@ -6,15 +6,76 @@ body{
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+
+.imageGal:hover{
+  padding: 10px;
+}
+
+.dropdown-content li > a {
+  color: white;
+}
+
+.dropdown-content li > a:hover {
+  color: black;
+}
+
+.mealcard{
+  cursor: pointer;
+  position: relative;
+}
+
+.catContent{
+  font-family: 'Pacifico', cursive;
+  font-size: 50px;
+  padding-top: 40px;
+height: 150px;
+}
+
+.sidenav-overlay{
+z-index: 600;
+}
+
+.overlay{
+  -webkit-user-select: none; /* Safari */        
+-moz-user-select: none; /* Firefox */
+-ms-user-select: none; /* IE10+/Edge */
+user-select: none; /* Standard */
+  cursor: pointer;
+  font-family: 'Pacifico', cursive;
+  font-size: 20px;
+  width: calc(100% - 40px);
+  position: absolute;
+  text-align: center;
+  padding-top: 5px;
+  height: 60px;
+  left: 20px;
+  bottom: 10px;
+  background-color: rgba(0, 0, 0, 0.651);
+}
+
+.dropdown-trigger:hover{
+background-color: rgb(228, 228, 228);
+color: black;
+}
+
+nav{
+  padding-bottom: -10px;
+  border-bottom: 1px solid white;
+}
+
+.imageGal{
+  border-radius: 5px;
+  padding: 20px;
+}
+
+img{
+  width: 100%;
 }
 
 .App-header {
@@ -44,5 +105,23 @@ body{
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@media only screen and (max-width: 1450px) {
+  .overlay {
+    font-size: 16px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .overlay {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 340px) {
+  .overlay {
+    font-size: 14px;
   }
 }

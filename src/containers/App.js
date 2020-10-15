@@ -1,10 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
-import axios from 'axios';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { filterMeals } from '../actions/index';
 import CategoryFilter from '../components/navbar';
+import MealList from '../components/mealList';
 import 'materialize-css/dist/css/materialize.min.css';
 import './App.css';
 
@@ -28,6 +27,7 @@ const App = (props) => {
   return (
     <BrowserRouter>
       <CategoryFilter changeFilter={switchFilter} />
+      <Route exact path="/" component={MealList} />
     </BrowserRouter>
   );
 };

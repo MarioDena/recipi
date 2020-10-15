@@ -6,7 +6,7 @@ import mealListReducer from './mealList';
 const rootReducer = combineReducers({
   meal: mealReducer,
   filter: filterReducer,
-  mealListState: mealListReducer,
+  mealList: mealListReducer,
 });
 
 export default rootReducer;
