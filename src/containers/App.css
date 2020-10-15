@@ -1,0 +1,217 @@
+body{
+  background-color: black;
+}
+
+.App {
+  text-align: center;
+}
+
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.imageGal:hover{
+  padding: 10px;
+}
+
+.custmText{
+  font-family: 'Pacifico', cursive;
+}
+
+.dropdown-content li > a {
+  color: white;
+}
+
+.dropdown-content li > a:hover {
+  color: black;
+}
+
+.mealcard{
+  cursor: pointer;
+  position: relative;
+}
+
+.catContent{
+  font-family: 'Pacifico', cursive;
+  font-size: 50px;
+  padding-top: 40px;
+min-height: 150px;
+}
+
+.findbtn{
+  margin-top: 40px;
+  margin-bottom: 40px;
+  background-color: white;
+  color: #282c34;
+}
+
+.findbtn:hover{
+  background-color: #282c34;
+  color: white;
+}
+
+.my-3 {
+  font-family: 'Pacifico', cursive;
+}
+
+.smallCont{
+  text-align: center;
+}
+
+.instructions{
+  max-width: 900px;
+}
+
+.instruction2{
+  font-family: 'Pacifico', cursive;
+  text-align: center;
+}
+
+.sidenav-overlay{
+z-index: 600;
+}
+
+.img-fluid{
+  padding: 50px;
+  border-radius: 50%;
+}
+
+
+.ingredients{
+  height: 100%;
+}
+.overlay{
+  -webkit-user-select: none; /* Safari */        
+-moz-user-select: none; /* Firefox */
+-ms-user-select: none; /* IE10+/Edge */
+user-select: none; /* Standard */
+  cursor: pointer;
+  font-family: 'Pacifico', cursive;
+  font-size: 20px;
+  width: calc(100% - 40px);
+  position: absolute;
+  text-align: center;
+  padding-top: 5px;
+  height: 60px;
+  left: 20px;
+  bottom: 10px;
+  background-color: rgba(0, 0, 0, 0.651);
+}
+
+.dropdown-trigger:hover{
+background-color: rgb(228, 228, 228);
+color: black;
+}
+
+nav{
+  padding-bottom: -10px;
+  border-bottom: 1px solid white;
+}
+
+.imageGal{
+  border-radius: 5px;
+  padding: 20px;
+}
+
+img{
+  width: 100%;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+.brand-logo{
+  font-size: 50px;
+  font-family: 'Pacifico', cursive;
+}
+
+
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .forceCenter {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+}
+
+@media only screen and (min-width: 1500px) {
+  .forceCenter {
+    padding-left: 200px;
+    padding-right: 200px;
+  }
+}
+
+
+
+
+@media only screen and (max-width: 1450px) {
+  .overlay {
+    font-size: 16px;
+  }
+}
+
+@media only screen and (max-width: 1160px) {
+  .overlay {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 1070px) {
+  .overlay {
+    font-size: 12px;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .overlay {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .overlay {
+    font-size: 16px;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .overlay {
+    font-size: 14px;
+  }
+}
+
+
+@media only screen and (max-width: 600px) {
+  .overlay {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 340px) {
+  .overlay {
+    font-size: 14px;
+  }
+}
