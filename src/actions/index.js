@@ -1,0 +1,1 @@
+export const filterMeals = (filter) => ({ type: 'CHANGE_FILTER', filter });

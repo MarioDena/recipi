@@ -1,3 +1,7 @@
+body{
+  background-color: black;
+}
+
 .App {
   text-align: center;
 }
@@ -27,6 +31,12 @@
 .App-link {
   color: #61dafb;
 }
+.brand-logo{
+  font-size: 50px;
+  font-family: 'Pacifico', cursive;
+}
+
+
 
 @keyframes App-logo-spin {
   from {
