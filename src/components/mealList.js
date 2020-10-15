@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { setMeals, setMeal, clearMeal } from '../actions/index';
 import Mealpreview from './mealpreview';
