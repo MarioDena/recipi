@@ -1,14 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useHistory } from 'react-router-dom';
 
 const Mealpreview = (props) => {
   const { meal, selectMeal } = props;
+  const history = useHistory();
   const handleSelectMeal = () => {
     selectMeal(meal.idMeal);
+    history.push(`/meal/${meal.idMeal}`);
   };
   const handleKeyDown = (key) => {
     if (key.key === 'Enter') {
       selectMeal(meal.idMeal);
+      history.push(`/meal/${meal.idMeal}`);
     }
   };
   const shortenString = (origin, length) => {

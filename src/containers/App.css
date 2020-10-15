@@ -17,6 +17,10 @@ body{
   padding: 10px;
 }
 
+.custmText{
+  font-family: 'Pacifico', cursive;
+}
+
 .dropdown-content li > a {
   color: white;
 }
@@ -34,13 +38,51 @@ body{
   font-family: 'Pacifico', cursive;
   font-size: 50px;
   padding-top: 40px;
-height: 150px;
+min-height: 150px;
+}
+
+.findbtn{
+  margin-top: 40px;
+  margin-bottom: 40px;
+  background-color: white;
+  color: #282c34;
+}
+
+.findbtn:hover{
+  background-color: #282c34;
+  color: white;
+}
+
+.my-3 {
+  font-family: 'Pacifico', cursive;
+}
+
+.smallCont{
+  text-align: center;
+}
+
+.instructions{
+  max-width: 900px;
+}
+
+.instruction2{
+  font-family: 'Pacifico', cursive;
+  text-align: center;
 }
 
 .sidenav-overlay{
 z-index: 600;
 }
 
+.img-fluid{
+  padding: 50px;
+  border-radius: 50%;
+}
+
+
+.ingredients{
+  height: 100%;
+}
 .overlay{
   -webkit-user-select: none; /* Safari */        
 -moz-user-select: none; /* Firefox */
@@ -108,11 +150,59 @@ img{
   }
 }
 
+@media only screen and (min-width: 1200px) {
+  .forceCenter {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+}
+
+@media only screen and (min-width: 1500px) {
+  .forceCenter {
+    padding-left: 200px;
+    padding-right: 200px;
+  }
+}
+
+
+
+
 @media only screen and (max-width: 1450px) {
   .overlay {
     font-size: 16px;
   }
 }
+
+@media only screen and (max-width: 1160px) {
+  .overlay {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 1070px) {
+  .overlay {
+    font-size: 12px;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .overlay {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .overlay {
+    font-size: 16px;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .overlay {
+    font-size: 14px;
+  }
+}
+
 
 @media only screen and (max-width: 600px) {
   .overlay {

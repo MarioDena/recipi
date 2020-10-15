@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable no-script-url */
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
 
 const CategoryFilter = (props) => {
@@ -15,10 +15,10 @@ const CategoryFilter = (props) => {
     'Vegetarian',
   ];
   const { changeFilter } = props;
-  const history = useHistory();
+  
   const handleFilterChange = (ev) => {
     changeFilter(ev.target.title);
-    history.push('/');
+    
   };
   return (
     <div className="navbar-fixed">
@@ -26,30 +26,30 @@ const CategoryFilter = (props) => {
         <ul id="dropdown1" className="dropdown-content black">
           {categories.map((c) => (
             <li key={c}>
-              <a href="/" onClick={handleFilterChange} title={c}>
+              <NavLink to="/" onClick={handleFilterChange} title={c}>
                 {c}
-              </a>
+              </NavLink>
             </li>
           ))}
         </ul>
         <ul className="sidenav" id="mobile-demo">
           <li key="TitleS">
             <div>
-              <h5 className="center-align grey-text text-darken-4">
+              <h5 className="custmText center-align grey-text text-darken-4">
                 Categories
               </h5>
             </div>
           </li>
           {categories.map((c) => (
             <li key={c}>
-              <a
-                href="/"
-                className="grey-text text-darken-4"
+              <NavLink
+                to="/"
+                className="sidenav-close grey-text text-darken-4"
                 onClick={handleFilterChange}
                 title={c}
               >
                 {c}
-              </a>
+              </NavLink>
             </li>
           ))}
         </ul>
@@ -58,9 +58,13 @@ const CategoryFilter = (props) => {
             <a href="/" className="brand-logo">
               Recipi
             </a>
-            <a href="/" data-target="mobile-demo" className="sidenav-trigger">
+            <NavLink
+              to="/"
+              data-target="mobile-demo"
+              className="sidenav-trigger"
+            >
               <i className="material-icons">menu</i>
-            </a>
+            </NavLink>
             <ul className="right hide-on-med-and-down">
               <li>
                 <a

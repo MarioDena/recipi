@@ -2,13 +2,14 @@ import React, { useEffect } from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { setMeals, setMeal } from '../actions/index';
+import { setMeals, setMeal, clearMeal } from '../actions/index';
 import Mealpreview from './mealpreview';
 
 const mapDispatchToProps = (dispatch) => {
   return {
     setMealsHandler: (meal) => dispatch(setMeals(meal)),
     setMealHandler: (meal) => dispatch(setMeal(meal)),
+    clearMealSelect: () => dispatch(clearMeal()),
   };
 };
 
@@ -20,7 +21,13 @@ const mapStateToProps = (state) => {
 };
 
 const MealList = (props) => {
-  const { meals, category, setMealsHandler, setMealHandler } = props;
+  const {
+    meals,
+    category,
+    setMealsHandler,
+    setMealHandler,
+    clearMealSelect,
+  } = props;
 
   const getMealsAsync = (cat) => {
     axios
@@ -31,6 +38,8 @@ const MealList = (props) => {
   };
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+    clearMealSelect();
     getMealsAsync(category);
   }, [category]);
 
@@ -39,18 +48,18 @@ const MealList = (props) => {
       {meals ? (
         <div className="container white-text">
           <div className="row">
-            <div className="catContent center-align valign">{category}</div>
+            <div className="catContent center-align">{category}</div>
             {meals.meals.map((meal) => (
               <Mealpreview
                 meal={meal}
                 key={meal.idMeal}
-                image={meal.strMealThumb}
+                selectMeal={setMealHandler}
               />
             ))}
           </div>
         </div>
       ) : (
-        <div className="container white-text">Loading...</div>
+        <div className="container">Loading...</div>
       )}
     </div>
   );

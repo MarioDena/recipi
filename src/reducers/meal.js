@@ -1,9 +1,7 @@
 const mealReducer = (state = null, action) => {
   switch (action.type) {
     case 'SELECT_MEAL':
-      return action.meals;
-    case 'DESELECT_MEAL':
-      return null;
+      return action.meal;
     default:
       return state;
   }

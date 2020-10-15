@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { filterMeals } from '../actions/index';
 import CategoryFilter from '../components/navbar';
 import MealList from '../components/mealList';
+import Meal from '../components/meal';
 import 'materialize-css/dist/css/materialize.min.css';
 import './App.css';
 
@@ -16,6 +17,7 @@ const mapDispatchToProps = (dispatch) => {
 const mapStateToProps = (state) => {
   return {
     category: state.filter,
+    meal: state.meal,
   };
 };
 
@@ -28,6 +30,7 @@ const App = (props) => {
     <BrowserRouter>
       <CategoryFilter changeFilter={switchFilter} />
       <Route exact path="/" component={MealList} />
+      <Route path="/meal/:mealID" component={Meal} />
     </BrowserRouter>
   );
 };
