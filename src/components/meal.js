@@ -1,9 +1,7 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { useParams } from 'react-router-dom';
 import { selectMeal } from '../actions/index';
 
 const mapDispatchToProps = (dispatch) => {
@@ -37,11 +35,11 @@ const Meal = (props) => {
     <div>
       {meal ? (
         <div className="container">
-          <div className="row catContent white-text center-align valign">
+          <div className="row catContent white-text center-align valign animate__animated animate__fadeIn">
             <div>{meal.strMeal}</div>
           </div>
           <div className="row valign-wrapper hide-on-small-only">
-            <div className="col s12 m6 white-text">
+            <div className="col s12 m6 white-text animate__animated animate__fadeInLeft">
               <div>
                 <h4 className="my-3 center-align">Ingredients</h4>
                 <ul className="center-align">
@@ -168,11 +166,15 @@ const Meal = (props) => {
               </div>
             </div>
             <div className="col s12 m6">
-              <img className="img-fluid" src={meal.strMealThumb} alt="..." />
+              <img
+                className="img-fluid animate__animated animate__fadeInRight"
+                src={meal.strMealThumb}
+                alt="..."
+              />
             </div>
           </div>
 
-          <div className="row hide-on-med-and-up">
+          <div className="row hide-on-med-and-up animate__animated animate__fadeIn">
             <div className="col s12 m6 white-text">
               <div>
                 <h4 className="my-3 center-align">Ingredients</h4>
@@ -300,13 +302,19 @@ const Meal = (props) => {
               </div>
             </div>
             <div className="col s12 m6">
-              <img className="img-fluid" src={meal.strMealThumb} alt="..." />
+              <img
+                className="img-fluid animate__animated animate__fadeIn"
+                src={meal.strMealThumb}
+                alt="..."
+              />
             </div>
           </div>
           <div className="row white-text center-align">
-            <h4 className="instruction2">Preparation</h4>{' '}
+            <h4 className="instruction2 animate__animated animate__fadeIn">
+              Preparation
+            </h4>{' '}
             <div className="">
-              <p className="instructions3 center-align">
+              <div className="instructions3 center-align animate__animated animate__fadeIn">
                 {meal.strInstructions
                   .replaceAll('.     ', '.\n')
                   .split('\n')
@@ -317,8 +325,10 @@ const Meal = (props) => {
                       </div>
                     );
                   })}
-              </p>
-              <Link to="/" className="waves-effect waves-light btn findbtn">Back to the Menu</Link>
+              </div>
+              <Link to="/" className="waves-effect waves-light btn findbtn">
+                Back to the Menu
+              </Link>
             </div>
           </div>
         </div>
@@ -327,10 +337,6 @@ const Meal = (props) => {
       )}
     </div>
   );
-};
-
-Meal.defaultProps = {
-  selectedMeal: null,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Meal);
