@@ -26,7 +26,6 @@ body {
   display: none;
 }
 
-
 .animate__animated.animate__fadeIn {
   --animate-delay: 0.9s;
   --animate-duration: 3s;
