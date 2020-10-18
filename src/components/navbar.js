@@ -1,10 +1,26 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable no-script-url */
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
+import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
+import { emptyMeals } from '../actions/index';
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    clearMealSelect: () => dispatch(emptyMeals()),
+  };
+};
+
+const mapStateToProps = (state) => {
+  return {
+    category: state.filter,
+  };
+};
 
 const CategoryFilter = (props) => {
+  const { clearMealSelect, category } = props;
+  const history = useHistory();
   const categories = [
     'Breakfast',
     'Dessert',
@@ -17,7 +33,15 @@ const CategoryFilter = (props) => {
   const { changeFilter } = props;
 
   const handleFilterChange = (ev) => {
-    changeFilter(ev.target.title);
+    if (ev.target.title === category) {
+      ev.preventDefault();
+      history.push('/');
+    } else {
+      ev.preventDefault();
+      clearMealSelect();
+      history.push('/');
+      changeFilter(ev.target.title);
+    }
   };
   return (
     <div className="navbar-fixed">
@@ -25,7 +49,7 @@ const CategoryFilter = (props) => {
         <ul id="dropdown1" className="dropdown-content black">
           {categories.map((c) => (
             <li key={c}>
-              <NavLink to="/" onClick={handleFilterChange} title={c}>
+              <NavLink to="#" onClick={handleFilterChange} title={c}>
                 {c}
               </NavLink>
             </li>
@@ -42,7 +66,7 @@ const CategoryFilter = (props) => {
           {categories.map((c) => (
             <li key={c}>
               <NavLink
-                to="/"
+                to="#"
                 className="sidenav-close grey-text text-darken-4"
                 onClick={handleFilterChange}
                 title={c}
@@ -58,7 +82,7 @@ const CategoryFilter = (props) => {
               Recipi
             </a>
             <NavLink
-              to="/"
+              to="#"
               data-target="mobile-demo"
               className="sidenav-trigger"
             >
@@ -87,4 +111,4 @@ CategoryFilter.propTypes = {
   changeFilter: PropTypes.func.isRequired,
 };
 
-export default CategoryFilter;
+export default connect(mapStateToProps, mapDispatchToProps)(CategoryFilter);

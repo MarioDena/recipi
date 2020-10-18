@@ -30,7 +30,7 @@ const Mealpreview = (props) => {
       onKeyDown={handleKeyDown}
       className="col s12 m6 l4 mealcard"
     >
-      <div className="imageGal">
+      <div className="imageGal animate__animated animate__fadeIn">
         <img src={meal.strMealThumb} className="card-img-top" alt="..." />
         <div className="overlay">{shortenString(meal.strMeal, 30)}</div>
       </div>

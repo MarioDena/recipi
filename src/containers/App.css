@@ -1,5 +1,10 @@
+html {
+  scrollbar-width: none;
+}
+
 body {
   background-color: black;
+  margin: 0;
 }
 
 .App {
@@ -15,6 +20,16 @@ body {
 .imageGal {
   border-radius: 5px;
   padding: 20px;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+
+.animate__animated.animate__fadeIn {
+  --animate-delay: 0.9s;
+  --animate-duration: 3s;
 }
 
 .imageGal:hover {
@@ -79,6 +94,7 @@ body {
 }
 
 .img-fluid {
+  max-width: 500px;
   padding: 50px;
   border-radius: 50%;
 }
