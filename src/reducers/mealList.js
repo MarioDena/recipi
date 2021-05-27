@@ -1,32 +1,12 @@
-const initialState = {
-  loading: true,
-  meals: null,
-};
-
-const mealListReducer = (state = initialState, action) => {
-  let newState = state;
-  if (action.type === 'GET_MEALS') {
-    newState = {
-      loading: false,
-      meals: action.meals,
-    };
-    return newState;
+const mealListReducer = (state = null, action) => {
+  switch (action.type) {
+    case 'SET_MEALS':
+      return action.meals;
+    case 'EMPTY_MEALS':
+      return null;
+    default:
+      return state;
   }
-  if (action.type === 'RELOAD_MEALS') {
-    newState = {
-      loading: true,
-      meals: newState.meals,
-    };
-    return newState;
-  }
-  if (action.type === 'RELOAD_PAGE') {
-    newState = {
-      loading: true,
-      meals: newState.meals,
-    };
-    return newState;
-  }
-  return newState;
 };
 
 export default mealListReducer;
