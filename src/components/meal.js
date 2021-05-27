@@ -1,160 +1,342 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useEffect } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import axios from 'axios';
+import { connect } from 'react-redux';
+import { selectMeal } from '../actions/index';
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    selectCurrentMeal: (meal) => dispatch(selectMeal(meal)),
+  };
+};
+
+const mapStateToProps = (state) => {
+  return {
+    meal: state.selectedMeal,
+  };
+};
 
 const Meal = (props) => {
-  const { meal, goBack } = props;
+  const { meal, selectCurrentMeal } = props;
+  const { mealID } = useParams();
+  const getMealAsync = (mealid) => {
+    axios
+      .get(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealid}`)
+      .then((res) => {
+        selectCurrentMeal(res.data.meals[0]);
+      });
+  };
+
+  useEffect(() => {
+    getMealAsync(mealID);
+  }, []);
 
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col-md-7">
-          <img className="img-fluid" src={meal.strMealThumb} alt="..." />
+    <div>
+      {meal ? (
+        <div className="container">
+          <div className="row catContent white-text center-align valign animate__animated animate__fadeIn">
+            <div>{meal.strMeal}</div>
+          </div>
+          <div className="row valign-wrapper hide-on-small-only">
+            <div className="col s12 m6 white-text animate__animated animate__fadeInLeft">
+              <div>
+                <h4 className="my-3 center-align">Ingredients</h4>
+                <ul className="center-align">
+                  {meal.strIngredient1 ? (
+                    <li>
+                      {meal.strIngredient1}: {meal.strMeasure1}.
+                    </li>
+                  ) : (
+                    <div />
+                  )}
+                  {meal.strIngredient2 ? (
+                    <li>
+                      {meal.strIngredient2}: {meal.strMeasure2}.
+                    </li>
+                  ) : (
+                    <div />
+                  )}
+                  {meal.strIngredient3 ? (
+                    <li>
+                      {meal.strIngredient3}: {meal.strMeasure3}.
+                    </li>
+                  ) : (
+                    <div />
+                  )}
+                  {meal.strIngredient4 ? (
+                    <li>
+                      {meal.strIngredient4}: {meal.strMeasure4}.
+                    </li>
+                  ) : (
+                    <div />
+                  )}
+                  {meal.strIngredient5 ? (
+                    <li>
+                      {meal.strIngredient5}: {meal.strMeasure5}.
+                    </li>
+                  ) : (
+                    <div />
+                  )}
+                  {meal.strIngredient6 ? (
+                    <li>
+                      {meal.strIngredient6}: {meal.strMeasure6}.
+                    </li>
+                  ) : (
+                    <div />
+                  )}
+                  {meal.strIngredient7 ? (
+                    <li>
+                      {meal.strIngredient7}: {meal.strMeasure7}.
+                    </li>
+                  ) : (
+                    <div />
+                  )}
+                  {meal.strIngredient8 ? (
+                    <li>
+                      {meal.strIngredient8}: {meal.strMeasure8}.
+                    </li>
+                  ) : (
+                    <div />
+                  )}
+                  {meal.strIngredient9 ? (
+                    <li>
+                      {meal.strIngredient9}: {meal.strMeasure9}.
+                    </li>
+                  ) : (
+                    <div />
+                  )}
+                  {meal.strIngredient10 ? (
+                    <li>
+                      {meal.strIngredient10}: {meal.strMeasure10}.
+                    </li>
+                  ) : (
+                    <div />
+                  )}
+                  {meal.strIngredient11 ? (
+                    <li>
+                      {meal.strIngredient12}: {meal.strMeasure12}.
+                    </li>
+                  ) : (
+                    <div />
+                  )}
+                  {meal.strIngredient13 ? (
+                    <li>
+                      {meal.strIngredient13}: {meal.strMeasure13}.
+                    </li>
+                  ) : (
+                    <div />
+                  )}
+                  {meal.strIngredient14 ? (
+                    <li>
+                      {meal.strIngredient14}: {meal.strMeasure14}.
+                    </li>
+                  ) : (
+                    <div />
+                  )}
+                  {meal.strIngredient15 ? (
+                    <li>
+                      {meal.strIngredient15}: {meal.strMeasure15}.
+                    </li>
+                  ) : (
+                    <div />
+                  )}
+                  {meal.strIngredient16 ? (
+                    <li>
+                      {meal.strIngredient16}: {meal.strMeasure16}.
+                    </li>
+                  ) : (
+                    <div />
+                  )}
+                  {meal.strIngredient17 ? (
+                    <li>
+                      {meal.strIngredient17}: {meal.strMeasure17}.
+                    </li>
+                  ) : (
+                    <div />
+                  )}
+                  {meal.strIngredient18 ? (
+                    <li>
+                      {meal.strIngredient18}: {meal.strMeasure18}.
+                    </li>
+                  ) : (
+                    <div />
+                  )}
+                </ul>
+              </div>
+            </div>
+            <div className="col s12 m6">
+              <img
+                className="img-fluid animate__animated animate__fadeInRight"
+                src={meal.strMealThumb}
+                alt="..."
+              />
+            </div>
+          </div>
+
+          <div className="row hide-on-med-and-up animate__animated animate__fadeIn">
+            <div className="col s12 m6 white-text">
+              <div>
+                <h4 className="my-3 center-align">Ingredients</h4>
+                <ul className="center-align">
+                  {meal.strIngredient1 ? (
+                    <li>
+                      {meal.strIngredient1}: {meal.strMeasure1}.
+                    </li>
+                  ) : (
+                    <div />
+                  )}
+                  {meal.strIngredient2 ? (
+                    <li>
+                      {meal.strIngredient2}: {meal.strMeasure2}.
+                    </li>
+                  ) : (
+                    <div />
+                  )}
+                  {meal.strIngredient3 ? (
+                    <li>
+                      {meal.strIngredient3}: {meal.strMeasure3}.
+                    </li>
+                  ) : (
+                    <div />
+                  )}
+                  {meal.strIngredient4 ? (
+                    <li>
+                      {meal.strIngredient4}: {meal.strMeasure4}.
+                    </li>
+                  ) : (
+                    <div />
+                  )}
+                  {meal.strIngredient5 ? (
+                    <li>
+                      {meal.strIngredient5}: {meal.strMeasure5}.
+                    </li>
+                  ) : (
+                    <div />
+                  )}
+                  {meal.strIngredient6 ? (
+                    <li>
+                      {meal.strIngredient6}: {meal.strMeasure6}.
+                    </li>
+                  ) : (
+                    <div />
+                  )}
+                  {meal.strIngredient7 ? (
+                    <li>
+                      {meal.strIngredient7}: {meal.strMeasure7}.
+                    </li>
+                  ) : (
+                    <div />
+                  )}
+                  {meal.strIngredient8 ? (
+                    <li>
+                      {meal.strIngredient8}: {meal.strMeasure8}.
+                    </li>
+                  ) : (
+                    <div />
+                  )}
+                  {meal.strIngredient9 ? (
+                    <li>
+                      {meal.strIngredient9}: {meal.strMeasure9}.
+                    </li>
+                  ) : (
+                    <div />
+                  )}
+                  {meal.strIngredient10 ? (
+                    <li>
+                      {meal.strIngredient10}: {meal.strMeasure10}.
+                    </li>
+                  ) : (
+                    <div />
+                  )}
+                  {meal.strIngredient11 ? (
+                    <li>
+                      {meal.strIngredient12}: {meal.strMeasure12}.
+                    </li>
+                  ) : (
+                    <div />
+                  )}
+                  {meal.strIngredient13 ? (
+                    <li>
+                      {meal.strIngredient13}: {meal.strMeasure13}.
+                    </li>
+                  ) : (
+                    <div />
+                  )}
+                  {meal.strIngredient14 ? (
+                    <li>
+                      {meal.strIngredient14}: {meal.strMeasure14}.
+                    </li>
+                  ) : (
+                    <div />
+                  )}
+                  {meal.strIngredient15 ? (
+                    <li>
+                      {meal.strIngredient15}: {meal.strMeasure15}.
+                    </li>
+                  ) : (
+                    <div />
+                  )}
+                  {meal.strIngredient16 ? (
+                    <li>
+                      {meal.strIngredient16}: {meal.strMeasure16}.
+                    </li>
+                  ) : (
+                    <div />
+                  )}
+                  {meal.strIngredient17 ? (
+                    <li>
+                      {meal.strIngredient17}: {meal.strMeasure17}.
+                    </li>
+                  ) : (
+                    <div />
+                  )}
+                  {meal.strIngredient18 ? (
+                    <li>
+                      {meal.strIngredient18}: {meal.strMeasure18}.
+                    </li>
+                  ) : (
+                    <div />
+                  )}
+                </ul>
+              </div>
+            </div>
+            <div className="col s12 m6">
+              <img
+                className="img-fluid animate__animated animate__fadeIn"
+                src={meal.strMealThumb}
+                alt="..."
+              />
+            </div>
+          </div>
+          <div className="row white-text center-align">
+            <h4 className="instruction2 animate__animated animate__fadeIn">
+              Preparation
+            </h4>{' '}
+            <div className="">
+              <div className="instructions3 center-align animate__animated animate__fadeIn">
+                {meal.strInstructions
+                  .replaceAll('.     ', '.\n')
+                  .split('\n')
+                  .map((i) => {
+                    return (
+                      <div className="forceCenter left-align" key={i}>
+                        {i}
+                      </div>
+                    );
+                  })}
+              </div>
+              <Link to="/" className="waves-effect waves-light btn findbtn">
+                Back to the Menu
+              </Link>
+            </div>
+          </div>
         </div>
-        <div className="col-md-5">
-          <h3 className="my-3">Ingredients</h3>
-          <ul>
-            {meal.strIngredient1 ? (
-              <li>
-                {meal.strIngredient1}: {meal.strMeasure1}.
-              </li>
-            ) : (
-              <div />
-            )}
-            {meal.strIngredient2 ? (
-              <li>
-                {meal.strIngredient2}: {meal.strMeasure2}.
-              </li>
-            ) : (
-              <div />
-            )}
-            {meal.strIngredient3 ? (
-              <li>
-                {meal.strIngredient3}: {meal.strMeasure3}.
-              </li>
-            ) : (
-              <div />
-            )}
-            {meal.strIngredient4 ? (
-              <li>
-                {meal.strIngredient4}: {meal.strMeasure4}.
-              </li>
-            ) : (
-              <div />
-            )}
-            {meal.strIngredient5 ? (
-              <li>
-                {meal.strIngredient5}: {meal.strMeasure5}.
-              </li>
-            ) : (
-              <div />
-            )}
-            {meal.strIngredient6 ? (
-              <li>
-                {meal.strIngredient6}: {meal.strMeasure6}.
-              </li>
-            ) : (
-              <div />
-            )}
-            {meal.strIngredient7 ? (
-              <li>
-                {meal.strIngredient7}: {meal.strMeasure7}.
-              </li>
-            ) : (
-              <div />
-            )}
-            {meal.strIngredient8 ? (
-              <li>
-                {meal.strIngredient8}: {meal.strMeasure8}.
-              </li>
-            ) : (
-              <div />
-            )}
-            {meal.strIngredient9 ? (
-              <li>
-                {meal.strIngredient9}: {meal.strMeasure9}.
-              </li>
-            ) : (
-              <div />
-            )}
-            {meal.strIngredient10 ? (
-              <li>
-                {meal.strIngredient10}: {meal.strMeasure10}.
-              </li>
-            ) : (
-              <div />
-            )}
-            {meal.strIngredient11 ? (
-              <li>
-                {meal.strIngredient12}: {meal.strMeasure12}.
-              </li>
-            ) : (
-              <div />
-            )}
-            {meal.strIngredient13 ? (
-              <li>
-                {meal.strIngredient13}: {meal.strMeasure13}.
-              </li>
-            ) : (
-              <div />
-            )}
-            {meal.strIngredient14 ? (
-              <li>
-                {meal.strIngredient14}: {meal.strMeasure14}.
-              </li>
-            ) : (
-              <div />
-            )}
-            {meal.strIngredient15 ? (
-              <li>
-                {meal.strIngredient15}: {meal.strMeasure15}.
-              </li>
-            ) : (
-              <div />
-            )}
-            {meal.strIngredient16 ? (
-              <li>
-                {meal.strIngredient16}: {meal.strMeasure16}.
-              </li>
-            ) : (
-              <div />
-            )}
-            {meal.strIngredient17 ? (
-              <li>
-                {meal.strIngredient17}: {meal.strMeasure17}.
-              </li>
-            ) : (
-              <div />
-            )}
-            {meal.strIngredient18 ? (
-              <li>
-                {meal.strIngredient18}: {meal.strMeasure18}.
-              </li>
-            ) : (
-              <div />
-            )}
-          </ul>
-        </div>
-      </div>
-      <div className="row">
-        <div className="col-md-12 instructions">
-          <h4 className="instruction2">Preparation</h4>{' '}
-          <p className="instructions3">{meal.strInstructions}</p>
-          <button
-            type="button"
-            className="btn btn-danger float-right goback"
-            onClick={goBack}
-          >
-            Back to the Menu!
-          </button>
-        </div>
-      </div>
+      ) : (
+        <div className="container">Loading...</div>
+      )}
     </div>
   );
 };
 
-Meal.propTypes = {
-  meal: PropTypes.object.isRequired,
-  goBack: PropTypes.func.isRequired,
-};
-
-export default Meal;
+export default connect(mapStateToProps, mapDispatchToProps)(Meal);
