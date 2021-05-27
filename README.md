@@ -11,7 +11,7 @@ A simple recipe book created with react
   </a>
 
   <h3 align="center">
-	 WeatherAppJS
+
   </h3>
 
   This project consists of building a recipe book using react, hooks, API calls, and react-router
